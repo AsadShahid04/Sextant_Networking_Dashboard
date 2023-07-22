@@ -10,7 +10,7 @@ class App extends Component {
     return (
       <div className="App">
         {/* Banner with application name */}
-        <Banner bannerText="Sextant - Network Information" />
+        <Banner title="Sextant - Unified Networking Dashboard Utility" />
 
         {/* Exhibit 1: Public IPv4 Address */}
         <Exhibit name="Public IPv4 Address">
