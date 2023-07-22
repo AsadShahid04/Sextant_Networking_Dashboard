@@ -1,3 +1,26 @@
+/* App.css */
+
+/* Reset some default styles to ensure consistency across browsers */
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif; /* Use the Roboto font or any other modern font you prefer */
+  color: #000000; /* Set a default text color */
+}
+
 .App {
-  font-family: Monospace;
+  /*background-color: #f0f0f0; /* Set a light background color for the app */
+  padding: 20px; /* Add some padding to the app container */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
