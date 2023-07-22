@@ -1,6 +1,8 @@
 import React from "react";
 import Banner from "./Banner";
 import Exhibit from "./Exhibit";
+import IPDisplay from './IPDisplay';
+
 
 const App = () => {
   return (
@@ -16,6 +18,13 @@ const App = () => {
           <li>Data point 1</li>
           <li>Data point 2</li>
           <li>Data point 3</li>
+          <Exhibit title="Public IPv4 Address">
+            <IPDisplay ipType="ip" />
+          </Exhibit>
+
+          <Exhibit title="Public IPv6 Address">
+            <IPDisplay ipType="ip6" />
+          </Exhibit>
         </ul>
       </Exhibit>
     </div>
