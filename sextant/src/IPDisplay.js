@@ -1,28 +1,23 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { Component } from "react";
 
-const IPDisplay = ({ ipType }) => {
-  const [ipAddress, setIPAddress] = useState(null);
-
-  useEffect(() => {
-    const fetchIPAddress = async () => {
-      try {
-        const response = await axios.get(`https://api64.ipify.org?format=json`);
-        setIPAddress(response.data[ipType]);
-      } catch (error) {
-        console.error("Error fetching IP address:", error);
-      }
+class IPDisplay extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      url: props.url,
+      ipAddress: null,
     };
+  }
 
-    fetchIPAddress();
-  }, [ipType]);
+  componentDidMount() {
+    fetch(this.state.url)
+      .then((response) => response.json())
+      .then((data) => this.setState({ ipAddress: data.ip }));
+  }
 
-  return (
-    <div>
-      <h3>Your Public {ipType === "ip" ? "IPv4" : "IPv6"} Address:</h3>
-      <p>{ipAddress || "Loading..."}</p>
-    </div>
-  );
-};
+  render() {
+    return <span className="IPDisplay">{this.state.ipAddress}</span>;
+  }
+}
 
 export default IPDisplay;
